@@ -8,3 +8,15 @@ Models/obj/Models.csproj.nuget.g.props
 Models/obj/Models.csproj.nuget.g.targets
 Models/obj/project.assets.json
 Models/obj/project.nuget.cache
+Models/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+Models/obj/Debug/net8.0/Models.AssemblyInfo.cs
+Models/obj/Debug/net8.0/Models.AssemblyInfoInputs.cache
+Models/obj/Debug/net8.0/Models.assets.cache
+Models/obj/Debug/net8.0/Models.GeneratedMSBuildEditorConfig.editorconfig
+Models/obj/Debug/net8.0/Models.GlobalUsings.g.cs
+GestBanque/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+GestBanque/obj/Debug/net8.0/GestBanque.AssemblyInfo.cs
+GestBanque/obj/Debug/net8.0/GestBanque.AssemblyInfoInputs.cache
+GestBanque/obj/Debug/net8.0/GestBanque.assets.cache
+GestBanque/obj/Debug/net8.0/GestBanque.GeneratedMSBuildEditorConfig.editorconfig
+GestBanque/obj/Debug/net8.0/GestBanque.GlobalUsings.g.cs
