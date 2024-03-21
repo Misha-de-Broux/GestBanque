@@ -1,0 +1,10 @@
+GestBanque/obj/GestBanque.csproj.nuget.dgspec.json
+GestBanque/obj/GestBanque.csproj.nuget.g.props
+GestBanque/obj/GestBanque.csproj.nuget.g.targets
+GestBanque/obj/project.assets.json
+GestBanque/obj/project.nuget.cache
+Models/obj/Models.csproj.nuget.dgspec.json
+Models/obj/Models.csproj.nuget.g.props
+Models/obj/Models.csproj.nuget.g.targets
+Models/obj/project.assets.json
+Models/obj/project.nuget.cache
