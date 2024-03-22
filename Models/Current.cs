@@ -23,7 +23,7 @@ namespace Models {
         }
 
         public void Withdraw(double amount) {
-            if(amount + MaxCredit > Balance) {
+            if(amount > 0 && amount + MaxCredit > Balance) {
                 Balance -= amount;
             }
         }
