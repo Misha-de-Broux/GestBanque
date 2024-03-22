@@ -19,7 +19,7 @@ namespace Models {
             }
         }
 
-        void Add(Current account) {
+        public void Add(Current account) {
             if (account == null) {
                 Console.WriteLine("Ce compte n'existe pas");
                 return;
@@ -31,7 +31,7 @@ namespace Models {
             _currents[account.Number] = account;
         }
 
-        void Remove(string number) {
+        public void Remove(string number) {
             if (!_currents.ContainsKey(number)) {
                 Console.WriteLine("Ce compte n'est pas présent dans notre liste'");
                 return;
