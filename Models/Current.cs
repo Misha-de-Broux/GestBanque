@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Models {
-    internal class Current {
+    public class Current {
 
         private double _maxCredit;
         public string Number { get; set; }
         public double Balance { get; private set; }
         public double MaxCredit {
             get { return _maxCredit; }
-            private set { if (value >= 0) _maxCredit = value; }
+            set { if (value >= 0) _maxCredit = value; }
         }
         public Person Owner { get; set; }
 
@@ -29,7 +29,7 @@ namespace Models {
                 Console.WriteLine("retrait d'un montant négatif impossible");
                 return;
             }
-            if(amount + MaxCredit > Balance) {
+            if (amount > Balance + MaxCredit) {
                 Console.WriteLine("Solde insuffisant");
                 return;
             }
