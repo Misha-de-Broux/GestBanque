@@ -35,5 +35,9 @@ namespace Models {
             }
             Balance -= amount;
         }
+
+        public static double operator +(double d, Current c) {
+            return c.Balance > 0 ? d + c.Balance : d;
+        }
     }
 }

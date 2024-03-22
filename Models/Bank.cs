@@ -38,5 +38,15 @@ namespace Models {
             }
             _currents.Remove(number);
         }
+
+        public double TotalAssets(Person owner) {
+            double total = 0;
+            foreach (Current account in _currents.Values) {
+                if (account.Owner == owner) {
+                    total += account;
+                }
+            }
+            return 0;
+        }
     }
 }
