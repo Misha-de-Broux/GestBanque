@@ -6,42 +6,42 @@ using System.Threading.Tasks;
 
 namespace Models {
     public class Bank {
-        private Dictionary<String, Current> _currents = new Dictionary<String, Current>();
+        private Dictionary<String, Account> _accounts = new Dictionary<String, Account>();
         public string Name { get; set; }
 
-        public Current this[string number] {
+        public Account this[string number] {
             get {
-                if (this._currents.ContainsKey(number)) {
-                    return this._currents[number];
+                if (this._accounts.ContainsKey(number)) {
+                    return this._accounts[number];
                 }
                 Console.WriteLine("Numéro inconnu");
                 return null;
             }
         }
 
-        public void Add(Current account) {
+        public void Add(Account account) {
             if (account == null) {
                 Console.WriteLine("Ce compte n'existe pas");
                 return;
             }
-            if (_currents.ContainsKey(account.Number)) {
+            if (_accounts.ContainsKey(account.Number)) {
                 Console.WriteLine("Numéro de compte déjà existant");
                 return;
             }
-            _currents[account.Number] = account;
+            _accounts[account.Number] = account;
         }
 
         public void Remove(string number) {
-            if (!_currents.ContainsKey(number)) {
+            if (!_accounts.ContainsKey(number)) {
                 Console.WriteLine("Ce compte n'est pas présent dans notre liste'");
                 return;
             }
-            _currents.Remove(number);
+            _accounts.Remove(number);
         }
 
         public double TotalAssets(Person owner) {
             double total = 0;
-            foreach (Current account in _currents.Values) {
+            foreach (Account account in _accounts.Values) {
                 if (account.Owner == owner) {
                     total += account;
                 }
