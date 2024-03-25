@@ -46,7 +46,7 @@ namespace Models {
                     total += account;
                 }
             }
-            return 0;
+            return total;
         }
     }
 }
