@@ -19,11 +19,19 @@ namespace Models {
         }
 
         public virtual void Withdraw(double amount) {
-            if (amount <= 0) {
+            if (IsWithDrawalValid(amount))
+                Balance -= amount;
+        }
+
+        protected virtual Boolean IsWithDrawalValid(double amount) {
+            if (amount > 0) {
                 Console.WriteLine("retrait d'un montant négatif impossible");
-                return;
+                return false;
+            } else if (amount <= Balance) {
+                Console.WriteLine("Solde insufisant");
+                return false;
             }
-            Balance -= amount;
+            return true;
         }
 
         public static double operator +(double d, Account c) {

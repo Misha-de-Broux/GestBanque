@@ -13,12 +13,15 @@ namespace Models {
             set { if (value >= 0) _maxCredit = value; }
         }
 
-        public void Withdraw(double amount) {
-            if (amount > Balance + MaxCredit) {
-                Console.WriteLine("Solde insuffisant");
-                return;
+        protected override bool IsWithDrawalValid(double amount) {
+            if (amount > 0) {
+                Console.WriteLine("retrait d'un montant négatif impossible");
+                return false;
+            } else if (amount <= Balance + MaxCredit) {
+                Console.WriteLine("Solde insufisant");
+                return false;
             }
-            base.Withdraw(amount);
+            return true;
         }
 
     }
