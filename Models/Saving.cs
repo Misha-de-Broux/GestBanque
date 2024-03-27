@@ -14,5 +14,10 @@ namespace Models {
                 LastWithdrawal = DateTime.Now;
             }
         }
+
+        protected override double CalculateInterest()
+        {
+            return 0.045;
+        }
     }
 }

@@ -24,5 +24,10 @@ namespace Models {
             return true;
         }
 
+        protected override double CalculateInterest()
+        {
+            return Balance > 0 ? 0.03 : 0.0975;
+        }
+
     }
 }

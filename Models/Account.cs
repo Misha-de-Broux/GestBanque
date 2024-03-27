@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Models {
-    public class Account {
+    public abstract class Account {
         public string Number { get; set; }
         public double Balance { get; private set; }
         public Person Owner { get; set; }
@@ -32,6 +32,13 @@ namespace Models {
                 return false;
             }
             return true;
+        }
+
+        abstract protected double CalculateInterest();
+
+        public void ApplyInterest()
+        {
+            Balance *= (1+ CalculateInterest());
         }
 
         public static double operator +(double d, Account c) {
