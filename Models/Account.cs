@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Models {
-    public abstract class Account {
+    public abstract class Account : IBanker {
         public string Number { get; set; }
         public double Balance { get; private set; }
         public Person Owner { get; set; }
 
-        public virtual void Deposit(double amount) {
+        public void Deposit(double amount) {
             if (amount <= 0) {
                 Console.WriteLine("dépot d'un montant négatif impossible");
                 return;
@@ -18,7 +18,7 @@ namespace Models {
             Balance += amount;
         }
 
-        public virtual void Withdraw(double amount) {
+        public void Withdraw(double amount) {
             if (IsWithDrawalValid(amount))
                 Balance -= amount;
         }
