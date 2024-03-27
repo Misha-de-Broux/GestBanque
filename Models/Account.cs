@@ -10,7 +10,7 @@ namespace Models {
         public double Balance { get; private set; }
         public Person Owner { get; set; }
 
-        public void Deposit(double amount) {
+        public virtual void Deposit(double amount) {
             if (amount <= 0) {
                 Console.WriteLine("dépot d'un montant négatif impossible");
                 return;
@@ -18,7 +18,7 @@ namespace Models {
             Balance += amount;
         }
 
-        public void Withdraw(double amount) {
+        public virtual void Withdraw(double amount) {
             if (IsWithDrawalValid(amount))
                 Balance -= amount;
         }
