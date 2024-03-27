@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Models {
     public class Bank {
-        private Dictionary<String, Account> _accounts = new Dictionary<String, Account>();
-        public string Name { get; set; }
+        private Dictionary<String, Account> _accounts;
+        public string Name { get; private set; }
 
         public Account this[string number] {
             get {
@@ -17,6 +17,11 @@ namespace Models {
                 Console.WriteLine("Numéro inconnu");
                 return null;
             }
+        }
+
+        public Bank(string name) {
+            Name = name;
+            _accounts = new Dictionary<string, Account>();
         }
 
         public void Add(Account account) {

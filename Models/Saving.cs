@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Models {
     public class Saving : Account {
-        public DateTime LastWithdrawal { get; set; }
+        public DateTime LastWithdrawal { get; private set; }
+        public Saving(Person owner, string number) : base(owner, number)
+        {
+        }
+        public Saving(Person owner, string number, double balance) : base(owner, number, balance)
+        {
+        }
         public override void Withdraw(double amount) {
             double old = Balance;
             base.Withdraw(amount);

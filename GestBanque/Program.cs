@@ -5,67 +5,19 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class Program {
     public static void Main(string[] args) {
-        Bank bank = new Bank()
-        {
-            Name = "RottenCorp"
-        };
-        Person doeJohn = new Person()
-        {
-            Name = "Doe",
-            FirstName = "John",
-            Birthday = new DateTime(1970, 1, 1)
-        };
+        Bank bank = new Bank("RottenCorp");
+        Person doeJohn = new Person("Doe", "John", new DateTime(1970, 1, 1));
 
-        Person doeJane = new Person()
-        {
-            Name = "Doe",
-            FirstName = "Jane",
-            Birthday = new DateTime(1970, 1, 1)
-        };
+        Person doeJane = new Person("Doe", "Jane", new DateTime(1970, 1, 1));
 
-        Person doeJonhy = new Person()
-        {
-            Name = "Doe",
-            FirstName = "John",
-            Birthday = new DateTime(1970, 1, 1)
-        };
+        Person doeJonhy = new Person("Doe", "John", new DateTime(1970, 1, 1));
 
-        Current jdAccount1 = new Current()
-        {
-            Number = "0001",
-            MaxCredit = 500,
-            Owner = doeJohn
-        };
-        Current jdAccount2 = new Current()
-        {
-            Number = "0002",
-            MaxCredit = 500,
-            Owner = doeJohn
-        };
-        Current jdAccount3 = new Current()
-        {
-            Number = "0003",
-            MaxCredit = 500,
-            Owner = doeJohn
-        };
-        Current jdAccount4 = new Current()
-        {
-            Number = "0004",
-            MaxCredit = 500,
-            Owner = doeJohn
-        };
-        Current jdAccount5 = new Current()
-        {
-            Number = "0005",
-            MaxCredit = 500,
-            Owner = doeJonhy
-        };
-        Current jdAccount6 = new Current()
-        {
-            Number = "0006",
-            MaxCredit = 500,
-            Owner = doeJane
-        };
+        Current jdAccount1 = new Current(500, doeJohn, "0001");
+        Current jdAccount2 = new Current(500, doeJohn, "0002");
+        Current jdAccount3 = new Current(500, doeJohn, "0003");
+        Current jdAccount4 = new Current(500, doeJohn, "0004");
+        Current jdAccount5 = new Current(500, doeJonhy, "0005");
+        Current jdAccount6 = new Current(500, doeJane, "0006");
         bank.Add(jdAccount1);
         bank.Add(jdAccount2);
         bank.Add(jdAccount3);

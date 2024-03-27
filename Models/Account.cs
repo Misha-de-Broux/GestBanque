@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Models {
     public abstract class Account : IBanker {
-        public string Number { get; set; }
+        public string Number { get; private set; }
         public double Balance { get; private set; }
-        public Person Owner { get; set; }
+        public Person Owner { get; private set; }
+
+        public Account(Person owner, string number) {
+            this.Owner = owner;
+            this.Number = number;
+        }
+        public Account(Person owner, string number, double balance) : this(owner, number) {
+            this.Balance = balance;
+        }
 
         public virtual void Deposit(double amount) {
             if (amount <= 0) {
