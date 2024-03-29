@@ -25,7 +25,7 @@ namespace Models {
         }
 
         protected override bool IsWithDrawalValid(double amount) {
-            if (amount <= Balance + MaxCredit) {
+            if (amount >= Balance + MaxCredit) {
                 return false;
             }
             return true;

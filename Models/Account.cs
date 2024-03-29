@@ -27,7 +27,7 @@ namespace Models {
         }
 
         public virtual void Withdraw(double amount) {
-            if (amount > 0) {
+            if (amount < 0) {
                 throw new ArgumentOutOfRangeException("retrait d'un montant négatif impossible");
             }
             if (IsWithDrawalValid(amount)) {
@@ -38,7 +38,7 @@ namespace Models {
         }
 
         protected virtual Boolean IsWithDrawalValid(double amount) {
-            if (amount <= Balance) {
+            if (amount >= Balance) {
                 return false;
             }
             return true;
