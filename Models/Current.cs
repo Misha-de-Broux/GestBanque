@@ -10,7 +10,10 @@ namespace Models {
         private double _maxCredit;
         public double MaxCredit {
             get { return _maxCredit; }
-            private set { if (value >= 0) _maxCredit = value; }
+            private set { 
+                if (value >= 0) _maxCredit = value; 
+                else throw new ArgumentOutOfRangeException("La ligne de crédit doit être positive");
+            }
         }
 
         public Current(Person owner, string number) : base(owner, number) {
@@ -22,11 +25,7 @@ namespace Models {
         }
 
         protected override bool IsWithDrawalValid(double amount) {
-            if (amount > 0) {
-                Console.WriteLine("retrait d'un montant négatif impossible");
-                return false;
-            } else if (amount <= Balance + MaxCredit) {
-                Console.WriteLine("Solde insufisant");
+            if (amount <= Balance + MaxCredit) {
                 return false;
             }
             return true;

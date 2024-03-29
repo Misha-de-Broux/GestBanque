@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Exceptions;
 
 namespace Models {
     public abstract class Account : IBanker {
@@ -20,23 +21,24 @@ namespace Models {
 
         public virtual void Deposit(double amount) {
             if (amount <= 0) {
-                Console.WriteLine("dépot d'un montant négatif impossible");
-                return;
+                throw new ArgumentOutOfRangeException("dépot d'un montant négatif impossible");
             }
             Balance += amount;
         }
 
         public virtual void Withdraw(double amount) {
-            if (IsWithDrawalValid(amount))
+            if (amount > 0) {
+                throw new ArgumentOutOfRangeException("retrait d'un montant négatif impossible");
+            }
+            if (IsWithDrawalValid(amount)) {
                 Balance -= amount;
+            } else {
+                throw new InsufisantBalanceException("Solde insufisant");
+            }
         }
 
         protected virtual Boolean IsWithDrawalValid(double amount) {
-            if (amount > 0) {
-                Console.WriteLine("retrait d'un montant négatif impossible");
-                return false;
-            } else if (amount <= Balance) {
-                Console.WriteLine("Solde insufisant");
+            if (amount <= Balance) {
                 return false;
             }
             return true;
@@ -44,9 +46,8 @@ namespace Models {
 
         abstract protected double CalculateInterest();
 
-        public void ApplyInterest()
-        {
-            Balance *= (1+ CalculateInterest());
+        public void ApplyInterest() {
+            Balance *= (1 + CalculateInterest());
         }
 
         public static double operator +(double d, Account c) {

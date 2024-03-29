@@ -24,8 +24,8 @@ namespace Models {
             _accounts = new Dictionary<string, Account>();
         }
 
-        public void Add(Account account) {
-            if (account == null) {
+        public void Add(Account? account) {
+            if (account is null) {
                 Console.WriteLine("Ce compte n'existe pas");
                 return;
             }
