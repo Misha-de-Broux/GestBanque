@@ -7,6 +7,8 @@ using Models.Exceptions;
 
 namespace Models {
     public abstract class Account : IBanker {
+
+        public event WentIntoCredit WentIntoCreditEvent;
         public string Number { get; private set; }
         public double Balance { get; private set; }
         public Person Owner { get; private set; }
@@ -50,8 +52,15 @@ namespace Models {
             Balance *= (1 + CalculateInterest());
         }
 
+        protected void TriggerWentIntoCreditEvent() {
+            WentIntoCredit toTrigger = WentIntoCreditEvent;
+            toTrigger?.Invoke(this);
+        }
+
         public static double operator +(double d, Account c) {
             return c.Balance > 0 ? d + c.Balance : d;
         }
     }
+
+    public delegate void WentIntoCredit(Account a);
 }

@@ -34,6 +34,7 @@ namespace Models {
                 return;
             }
             _accounts[account.Number] = account;
+            account.WentIntoCreditEvent += WentIntoCreditAction;
         }
 
         public void Remove(string number) {
@@ -41,7 +42,9 @@ namespace Models {
                 Console.WriteLine("Ce compte n'est pas présent dans notre liste'");
                 return;
             }
+            _accounts[number].WentIntoCreditEvent -= WentIntoCreditAction;
             _accounts.Remove(number);
+            
         }
 
         public double TotalAssets(Person owner) {
@@ -52,6 +55,10 @@ namespace Models {
                 }
             }
             return total;
+        }
+
+        private void WentIntoCreditAction(Account account) {
+            Console.WriteLine($"The account number {account.Number} just went into credit.");
         }
     }
 }
