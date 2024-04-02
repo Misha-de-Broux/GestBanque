@@ -8,7 +8,7 @@ using Models.Exceptions;
 namespace Models {
     public abstract class Account : IBanker {
 
-        public event WentIntoCredit WentIntoCreditEvent;
+        public event Action<Account> WentIntoCreditEvent;
         public string Number { get; private set; }
         public double Balance { get; private set; }
         public Person Owner { get; private set; }
@@ -53,7 +53,7 @@ namespace Models {
         }
 
         protected void TriggerWentIntoCreditEvent() {
-            WentIntoCredit toTrigger = WentIntoCreditEvent;
+            Action<Account> toTrigger = WentIntoCreditEvent;
             toTrigger?.Invoke(this);
         }
 
@@ -62,5 +62,4 @@ namespace Models {
         }
     }
 
-    public delegate void WentIntoCredit(Account a);
 }
